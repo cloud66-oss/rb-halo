@@ -1,8 +1,6 @@
-# Rb::Halo
+# RbHalo
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rb/halo`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+RbHalo is a Ruby client for Halo.
 
 ## Installation
 
@@ -22,14 +20,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+client = RbHalo::Client.connect('host.acme.org')
 
-## Development
+client.log("key", "session", "payload")
+# or
+client.close_session("key", "session")
+# then
+client.close()
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+You can use the following options:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rb-halo.
+```
+:tls -> Connect to a TLS enabled Halo server
+:port -> Port (default is 15443)
+:host -> Halo host (name or IP)
+:token -> JWT if needed
+```
