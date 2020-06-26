@@ -1,7 +1,8 @@
 Dir["#{File.dirname(__FILE__)}/rbhalo/**/*.rb"].each { |f| load(f) }
 
 module RbHalo
-    class Error < StandardError; end
+	class Error < StandardError; end
+	class ConnectionError < Error; end
 
 	StatusOK     = 200
 	StatusIgnore = 201
